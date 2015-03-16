@@ -1,3 +1,3 @@
 # Project Home
 
-Software for automated home entertainment
+Software for home entertainment
