@@ -2,17 +2,47 @@
 
 import socket
 
+# TODO only print when verbose variable is set or whatever
+# TODO logging
+
 class CSocketServer:
 
-    # Create a socket object
-    s = socket.socket()
-    host = socket.gethostname()
-    port = 12345
-    s.bind((host, port))
+    def __init__(self, port=None):
+        """
+        Global constructor
 
-    s.listen(5)                 # Now wait for client connection.
-    while True:
-        c, addr = s.accept()     # Establish connection with client.
-        print 'Got connection from', addr
-        c.send('Thank you for connecting')
-        c.close()                # Close the connection
+        :param port: override port
+        :return CSocketServer object
+        """
+
+        print("[CSocketServer] create socket.socket() object")
+
+        # Create a socket object
+        self.__socket = socket.socket()
+
+        print("[CSocketServer] define params")
+
+        # Define Params
+        self.__host = socket.gethostname()
+        if port is not None:
+            self.__port = port
+        else:
+            # use default port
+            # TODO define as constant
+            self.__port = 6615
+
+        print("[CSocketServer] done; [host] %s [port] %s" % (self.__host, self.__port))
+
+        self.__socket.bind((self.__host, self.__port))
+
+        print("[CSocketServer] socket bound to host and port")
+
+
+    def getSocket(self):
+        """
+        ....
+        :return:
+        """
+
+        return self.__socket
+
