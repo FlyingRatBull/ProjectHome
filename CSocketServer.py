@@ -23,7 +23,7 @@ class CSocketServer:
         print("[CSocketServer] define params")
 
         # Define Params
-        self.__host = socket.gethostname()
+        self.__host = "0.0.0.0"
         if port is not None:
             self.__port = port
         else:
