@@ -13,3 +13,4 @@ while True:
    print 'Got connection from', addr
    c.send('Thank you for connecting')
    c.close()                # Close the connection
+   # asas
